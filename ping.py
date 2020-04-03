@@ -17,4 +17,6 @@ while True:
              pcache.append(0.0)
     pcache=[round(round(sum((pcache)), 2)/len(pcache), 2)]
     writer.writerow([str(datetime.now().strftime(dformat)), float(pcache[0])])
+    pingcsv.flush()
     sleep(60)
+pingcsv.close()
