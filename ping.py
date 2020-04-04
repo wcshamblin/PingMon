@@ -6,6 +6,7 @@ from time import sleep
 dformat = '%R'
 phost='google.com'
 pingcsv = open('ping.csv', 'w', newline='')
+pingcsv.write('time,ping\n')
 writer = csv.writer(pingcsv, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
 while True:
     pcache=[]
