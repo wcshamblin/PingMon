@@ -1,6 +1,6 @@
 # PingMon
 
-PingMon monitor ping time minute by minute and graphs the result.
+PingMon monitors ping time minute by minute and graphs the result.
 
 ## Gathering data
 To daemonize
