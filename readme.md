@@ -12,5 +12,5 @@ nohup ./ping.py &
 ## Graphing
 ```bash
 chmod 755 pplot.py
-pplot.py
+./pplot.py
 ```
