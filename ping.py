@@ -10,7 +10,7 @@ pingcsv.write('time,ping\n')
 writer = csv.writer(pingcsv, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
 while True:
     pcache=[]
-    cping=os.popen('ping -c 10 ' + phost).read().strip().split('\n')
+    cping=os.popen('ping -c 10 -w 5 ' + phost).read().strip().split('\n')
     for row in cping[1:-4]:
         try:
              pcache.append((float(row.split(' ')[-2].split('=')[1])))
