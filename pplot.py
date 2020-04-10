@@ -3,16 +3,22 @@ import numpy as np
 import plotly.graph_objects as go
 import pandas as pd
 pid=pd.read_csv('./ping.csv').sort_values('time')
-hl=[]
-for t in pd.date_range("00:00", "23:59", freq="1min").time:
-    hl.append(str(t)[:5])
-trace1 = go.Scattergl(
+np=pid[pid['ping'] == 0.0]
+sp = go.Scattergl(
     x=pid['time'],
     y=pid['ping'],
     mode='markers',
     marker=dict(
-        opacity=0.8
-    ),
+        opacity=0.8),
+    name="Host"
+)
+np = go.Scattergl(
+    x=np['time'],
+    y=np['ping'],
+    mode='markers',
+    marker=dict(
+        opacity=0.8),
+    name="No comm"
 )
 layout = go.Layout(
     title='Time vs. Ping',
@@ -25,6 +31,5 @@ layout = go.Layout(
     hovermode='closest',
     #showlegend=True
 )
-
-figure = go.Figure(data=trace1, layout=layout)
+figure = go.Figure(data=[sp, np], layout=layout)
 figure.show()
